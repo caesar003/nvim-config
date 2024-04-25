@@ -5,6 +5,7 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+function ShowErrorMessage() vim.api.nvim_err_writeln "Uh uh, we don't do that here!" end
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -32,6 +33,8 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+        cursorcolumn = true,
+        mouse = "",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -40,6 +43,9 @@ return {
         python3_host_prog = "/usr/bin/python3",
         loaded_perl_provider = 0,
         loaded_ruby_provider = 0,
+        neovide_transparency = 0.9,
+        neovide_background_color = "#0f1117",
+        neovide_cursor_vfx_mode = "sonicboom", -- railgun | torpedo | pixiedust | sonicboom | ripple | wireframe
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -75,9 +81,15 @@ return {
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
 
         ["<leader>k"] = { ":edit ~/.config/kitty/kitty.conf<cr>", desc = "Edit Kitty Configuration" },
+
+        ["<up>"] = function() vim.api.nvim_err_writeln "Uh uh, we don't do that here!" end,
+        ["<down>"] = function() vim.api.nvim_err_writeln "Uh uh, we don't do that here!" end,
+        ["<right>"] = function() vim.api.nvim_err_writeln "Uh uh, we don't do that here!" end,
+        ["<left>"] = function() vim.api.nvim_err_writeln "Uh uh, we don't do that here!" end,
       },
       i = {
         jj = "<Esc>",
+        -- ["<Esc>"] = function() vim.api.nvim_err_writeln "Uh uh, we don't do that here!" end,
       },
       t = {
         -- setting a mapping to false will disable it
